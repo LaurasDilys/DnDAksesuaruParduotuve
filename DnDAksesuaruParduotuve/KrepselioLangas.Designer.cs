@@ -173,17 +173,17 @@ namespace DnDAksesuaruParduotuve
             this.bendraKaina.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bendraKaina.Location = new System.Drawing.Point(249, 760);
             this.bendraKaina.Name = "bendraKaina";
-            this.bendraKaina.Size = new System.Drawing.Size(185, 35);
+            this.bendraKaina.Size = new System.Drawing.Size(137, 35);
             this.bendraKaina.TabIndex = 16;
             this.bendraKaina.Text = "666.00 eur";
-            this.bendraKaina.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bendraKaina.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // siuntosInfoLabel
             // 
             this.siuntosInfoLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siuntosInfoLabel.Location = new System.Drawing.Point(53, 504);
+            this.siuntosInfoLabel.Location = new System.Drawing.Point(30, 504);
             this.siuntosInfoLabel.Name = "siuntosInfoLabel";
-            this.siuntosInfoLabel.Size = new System.Drawing.Size(326, 232);
+            this.siuntosInfoLabel.Size = new System.Drawing.Size(356, 232);
             this.siuntosInfoLabel.TabIndex = 9;
             this.siuntosInfoLabel.Text = "Siuntos kaina: 69 eur";
             this.siuntosInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -315,6 +315,7 @@ namespace DnDAksesuaruParduotuve
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 829);
+            this.Controls.Add(this.bendraKaina);
             this.Controls.Add(this.adresasBox);
             this.Controls.Add(this.tarptautinisLabel);
             this.Controls.Add(this.iPastomataLabel);
@@ -326,7 +327,6 @@ namespace DnDAksesuaruParduotuve
             this.Controls.Add(this.laiskoNuotrauka);
             this.Controls.Add(this.pristatymoBudasLabel);
             this.Controls.Add(this.siuntosInfoLabel);
-            this.Controls.Add(this.bendraKaina);
             this.Controls.Add(this.bpkLabel);
             this.Controls.Add(this.apmoketiButton);
             this.Controls.Add(this.griztiButton);

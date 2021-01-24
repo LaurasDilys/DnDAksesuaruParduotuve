@@ -10,13 +10,15 @@ namespace DnDAksesuaruParduotuve
 {
     public partial class KrepselioElementas : UserControl
     {
-        public KrepselioElementas(Preke preke)
+        public KrepselioElementas(Preke preke, KrepselioLangas krepselioLangas)
         {
             InitializeComponent();
             this.preke = preke;
+            this.krepselioLangas = krepselioLangas;
         }
 
         private Preke preke;
+        private KrepselioLangas krepselioLangas;
 
         public void Elementas_Update()
         {
@@ -40,6 +42,7 @@ namespace DnDAksesuaruParduotuve
             Button mygtukas = (Button)sender;
             int i = Duomenys.prekes.IndexOf(preke);
             Duomenys.prekes[i].PasirinktasKiekis--;
+            krepselioLangas.SiuntosInfo_Update();
         }
 
         public void plusButton_Click(object sender, EventArgs e)
@@ -47,6 +50,7 @@ namespace DnDAksesuaruParduotuve
             Button mygtukas = (Button)sender;
             int i = Duomenys.prekes.IndexOf(preke);
             Duomenys.prekes[i].PasirinktasKiekis++;
+            krepselioLangas.SiuntosInfo_Update();
         }
     }
 }

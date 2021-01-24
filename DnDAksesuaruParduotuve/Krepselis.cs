@@ -24,10 +24,10 @@ namespace DnDAksesuaruParduotuve
         {
             PrekiuKiekis--;
             PrekiuKaina -= preke.Kaina;
-            PrekiuSvoris -= preke.Svoris;Langai.krepselioLangas.KrepselioPanel_Update(preke);
+            PrekiuSvoris -= preke.Svoris;
+            Langai.krepselioLangas.KrepselioPanel_Update(preke);
             if (preke.PasirinktasKiekis == 0) { Prekes.Remove(preke); }
             KrepselioLogo_Update();
-            Siunta.SiuntosInfo_Update();
         }
 
         public void Prideti(Preke preke)
@@ -40,16 +40,15 @@ namespace DnDAksesuaruParduotuve
             if (!Prekes.Contains(preke)) { Prekes.Add(preke); }
             Langai.krepselioLangas.KrepselioPanel_Update(preke);
             KrepselioLogo_Update();
-            Siunta.SiuntosInfo_Update();
         }
 
         public void KrepselioLogo_Update()
         {
             Langai.prekiuLangas.PasirinktuPrekiuKiekis.Text = PrekiuKiekis.ToString();
-            Langai.prekiuLangas.PasirinktuPrekiuKaina.Text = String.Format("{0:0.00} €", PrekiuKaina);
+            Langai.prekiuLangas.PasirinktuPrekiuKaina.Text = string.Format("{0:0.00} €", PrekiuKaina);
 
             Langai.krepselioLangas.PasirinktuPrekiuKiekis.Text = PrekiuKiekis.ToString();
-            Langai.krepselioLangas.PasirinktuPrekiuKaina.Text = String.Format("{0:0.00} €", PrekiuKaina);
+            Langai.krepselioLangas.PasirinktuPrekiuKaina.Text = string.Format("{0:0.00} €", PrekiuKaina);
         }
 
         public static int IndexKrepselyje(Preke preke)

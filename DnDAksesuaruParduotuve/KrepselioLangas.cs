@@ -20,19 +20,20 @@ namespace DnDAksesuaruParduotuve
             pristatymoLabels.Add(kurjeriuLabel);
             pristatymoLabels.Add(iPastomataLabel);
             pristatymoLabels.Add(tarptautinisLabel);
-            pasirinktasPristatymoBudas = -1;
+            siunta = new Siunta(Duomenys.krepselis);
         }
 
         private List<Label> pristatymoLabels;
-        public static int pasirinktasPristatymoBudas;
         public static List<KrepselioElementas> krepselioElementai = new List<KrepselioElementas>();
+
+        private Siunta siunta;
 
 
         public void KrepselioPanel_Update(Preke preke)
         {
             if (Duomenys.krepselis.Prekes.Count > krepselioElementai.Count)
             {
-                krepselioElementai.Add(new KrepselioElementas(preke));
+                krepselioElementai.Add(new KrepselioElementas(preke, this));
                 KrepselioPanel.Controls.Add(krepselioElementai.Last());
             }
             for (int i = 0; i < krepselioElementai.Count; i++)
@@ -41,6 +42,11 @@ namespace DnDAksesuaruParduotuve
             }
         }
 
+        public void SiuntosInfo_Update()
+        {
+            siuntosInfoLabel.Text = string.Join("\n", siunta.SiuntosInfo());
+            bendraKaina.Text = string.Format("{0:0.00} €", siunta.BendraKaina);
+        }
 
 
         private void PristatymoLabel_Click(object sender, EventArgs e)
@@ -48,17 +54,17 @@ namespace DnDAksesuaruParduotuve
             Label label = (Label)sender;
             label.Font = new Font(label.Font, FontStyle.Bold);
             label.BackColor = SystemColors.GradientActiveCaption;
-            pasirinktasPristatymoBudas = pristatymoLabels.IndexOf(label);
+            siunta.PasirinktasPristatymoBudas = pristatymoLabels.IndexOf(label);
             for (int i = 0; i < pristatymoLabels.Count; i++)
             {
-                if (i != pasirinktasPristatymoBudas)
+                if (i != siunta.PasirinktasPristatymoBudas)
                 {
                     pristatymoLabels[i].Font = new Font(label.Font, FontStyle.Regular);
                     pristatymoLabels[i].BackColor = SystemColors.ControlLight;
                 }
             }
             pristatymoBudasLabel.ForeColor = Color.Black;
-            Siunta.SiuntosInfo_Update();
+            SiuntosInfo_Update();
         }
 
         private void adresasBox_Enter(object sender, EventArgs e)
@@ -89,7 +95,10 @@ namespace DnDAksesuaruParduotuve
         private void PrekiuLangas_Show(object sender, EventArgs e)
         {
             //Hide();
-            Langai.prekiuLangas.Show();
+            //Langai.prekiuLangas.Show();
+            PrekiuLangas prekiuLangas2 = new PrekiuLangas();
+            this.Dispose();
+            prekiuLangas2.Show();
         }
 
         private void apmoketiButton_Click(object sender, EventArgs e)
@@ -102,7 +111,7 @@ namespace DnDAksesuaruParduotuve
             //}
             //else
             //{
-            if (pasirinktasPristatymoBudas == -1)
+            if (siunta.PasirinktasPristatymoBudas == -1)
             {
                 nepasirinkti++;
                 zinute = "Nepasirinktas pristatymo būdas!";
