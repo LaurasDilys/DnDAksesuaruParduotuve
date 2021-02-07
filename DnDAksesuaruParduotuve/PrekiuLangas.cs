@@ -35,7 +35,6 @@ namespace DnDAksesuaruParduotuve
             {
                 nuotraukos.Add(Nuotrauka(i));
                 PrekiuPanel.Controls.Add(nuotraukos[i]);
-                nuotraukos[i].ImageLocation = @"C:\Users\laura\Desktop\testas.jpg";
 
                 kategorijos.Add(Kategorija(i));
                 PrekiuPanel.Controls.Add(kategorijos[i]);
@@ -61,6 +60,8 @@ namespace DnDAksesuaruParduotuve
 
             for (int i = 0; i < Duomenys.prekes.Count; i++)
             {
+                string location = @"C:\Users\laura\Desktop\testasHorizontal.jpg";
+                nuotraukos[i].AtvaizduotiNuotrauka(location);
                 pavadinimai[i].Text = Duomenys.prekes[i].Pavadinimas;
                 kategorijos[i].Text = Duomenys.prekes[i].Kategorija.ToUpper();
                 kainos[i].Text = Duomenys.prekes[i].Kaina.ToString("N") + " €";
@@ -84,6 +85,11 @@ namespace DnDAksesuaruParduotuve
                 }
             }
         }
+
+        
+
+
+
 
         private void minusButton_Click(object sender, EventArgs e)
         {

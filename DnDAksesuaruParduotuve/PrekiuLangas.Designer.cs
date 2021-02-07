@@ -29,6 +29,7 @@ namespace DnDAksesuaruParduotuve
                 new System.Drawing.Point(AntstumasnuoKaires(objektoIndeksas),
                                         AntstumasnuoVirsaus(objektoIndeksas));
             nuotrauka.Size = new System.Drawing.Size(174, 112);
+            nuotrauka.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             nuotrauka.TabStop = false;
             //nuotrauka.TabIndex = objektoIndeksas;
 
