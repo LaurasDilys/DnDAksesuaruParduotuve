@@ -223,13 +223,13 @@ namespace DnDAksesuaruParduotuve
             // KrepselisLogo
             // 
             this.KrepselisLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.KrepselisLogo.AutoSize = true;
             this.KrepselisLogo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.KrepselisLogo.Location = new System.Drawing.Point(797, 13);
+            this.KrepselisLogo.Location = new System.Drawing.Point(780, 13);
             this.KrepselisLogo.Name = "KrepselisLogo";
-            this.KrepselisLogo.Size = new System.Drawing.Size(61, 17);
+            this.KrepselisLogo.Size = new System.Drawing.Size(78, 17);
             this.KrepselisLogo.TabIndex = 5;
             this.KrepselisLogo.Text = "Krepšelis";
+            this.KrepselisLogo.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.KrepselisLogo.Click += new System.EventHandler(this.KrepselioLangas_Show);
             // 
             // PasirinktuPrekiuKaina
@@ -274,7 +274,7 @@ namespace DnDAksesuaruParduotuve
             this.Name = "PrekiuLangas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "D&D Aksesuarai";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Langai.FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrekiuLangas_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CartLogo)).EndInit();
             this.ResumeLayout(false);

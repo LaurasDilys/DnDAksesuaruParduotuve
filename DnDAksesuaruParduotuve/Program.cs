@@ -17,8 +17,8 @@ namespace DnDAksesuaruParduotuve
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new Langai();
             new Duomenys();
+            new Langai();
         }
     }
 }

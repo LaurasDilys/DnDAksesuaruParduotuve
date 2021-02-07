@@ -112,5 +112,10 @@ namespace DnDAksesuaruParduotuve
             Langai.KrepselioLangas.Location = this.Location;
             Langai.KrepselioLangas.Show();
         }
+
+        private void PrekiuLangas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Langai.Exit();
+        }
     }
 }

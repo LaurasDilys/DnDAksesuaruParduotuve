@@ -101,35 +101,47 @@ namespace DnDAksesuaruParduotuve
 
         private void apmoketiButton_Click(object sender, EventArgs e)
         {
-            int nepasirinkti = 0;
-            string zinute;
-            //if (krepselis.Count == 0)
-            //{
-            //    zinute = "Krepšelis yra tuščias! Išsirinkite norimas prekes.";
-            //}
-            //else
-            //{
-            if (siunta.PasirinktasPristatymoBudas == -1)
+            string zinute = "";
+            if (Duomenys.Krepselis.Prekes.Count == 0)
             {
-                nepasirinkti++;
-                zinute = "Nepasirinktas pristatymo būdas!";
-                pristatymoBudasLabel.ForeColor = Color.Red;
+                zinute = "Krepšelis yra tuščias! Išsirinkite norimas prekes.";
+                MessageBox.Show(zinute);
             }
-            if (adresasBox.ForeColor == Color.DimGray)
+            else
             {
-                nepasirinkti++;
-                zinute = "Nenurodytas adresas!";
-                adresasBoxBorder.BackColor = Color.Red;
+                int nepasirinkti = 0;
+                if (siunta.PasirinktasPristatymoBudas == -1)
+                {
+                    nepasirinkti++;
+                    zinute = "Nepasirinktas pristatymo būdas!";
+                    pristatymoBudasLabel.ForeColor = Color.Red;
+                }
+                if (adresasBox.ForeColor == Color.DimGray)
+                {
+                    nepasirinkti++;
+                    zinute = "Nenurodytas adresas!";
+                    adresasBoxBorder.BackColor = Color.Red;
+                }
+                if (nepasirinkti == 2) zinute = "Nepasirinktas pristatymo būdas ir nenurodytas adresas!";
+
+                if (nepasirinkti > 0)
+                {
+                    MessageBox.Show(zinute);
+                }
+                else
+                {
+                    ManageDb.SumazintiTurimusKiekius(Duomenys.Krepselis.Prekes);
+                    Form pardavimoLangas = new PardavimoLangas(adresasBox.Text);
+                    pardavimoLangas.Location = this.Location;
+                    pardavimoLangas.Show();
+                    this.Hide();
+                }
             }
-            if (nepasirinkti == 2)
-            {
-                zinute = "Nepasirinktas pristatymo būdas ir nenurodytas adresas!";
-            }
-            else if (nepasirinkti == 0)
-            {
-                //Dėkojame. Siunta bus prisatyta adresu...
-                //Ar norite grįžti į parduotuvę?
-            }
+        }
+
+        private void KrepselioLangas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Langai.Exit();
         }
     }
 }

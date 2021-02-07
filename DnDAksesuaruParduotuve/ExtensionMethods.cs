@@ -11,8 +11,10 @@ namespace DnDAksesuaruParduotuve
     {
         public static void AtvaizduotiNuotrauka(this PictureBox box, int itemId)
         {
-            string pictureLocation = $"{itemId}.png";
-            if (!File.Exists(pictureLocation)) pictureLocation = $"{itemId}.jpg";
+            string pictureLocation;
+            if (File.Exists($"{itemId}.png")) pictureLocation = $"{itemId}.png";
+            else if (File.Exists($"{itemId}.jpg")) pictureLocation = $"{itemId}.jpg";
+            else return;
             Image picture = Image.FromFile(pictureLocation);
 
             double pictureWidth = picture.Width;
@@ -38,10 +40,12 @@ namespace DnDAksesuaruParduotuve
             box.ImageLocation = pictureLocation;
         }
 
-        public static void AtvaizduotiNuotraukaViduryje(this PictureBox box, int itemId)
+        public static void AtvaizduotiNuotraukaCentre(this PictureBox box, int itemId)
         {
-            string pictureLocation = $"{itemId}.png";
-            if (!File.Exists(pictureLocation)) pictureLocation = $"{itemId}.jpg";
+            string pictureLocation;
+            if (File.Exists($"{itemId}.png")) pictureLocation = $"{itemId}.png";
+            else if (File.Exists($"{itemId}.jpg")) pictureLocation = $"{itemId}.jpg";
+            else return;
             Image picture = Image.FromFile(pictureLocation);
 
             double pictureWidth = picture.Width;

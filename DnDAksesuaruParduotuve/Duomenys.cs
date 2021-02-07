@@ -6,10 +6,15 @@ namespace DnDAksesuaruParduotuve
 {
     public class Duomenys
     {
-        public static List<Preke> Prekes = NuskaitytiPrekes();
-        public static Krepselis Krepselis = new Krepselis();
+        public Duomenys()
+        {
+            NuskaitytiPrekes();
+        }
 
-        private static List<Preke> NuskaitytiPrekes()
+        public static List<Preke> Prekes { get; set; }
+        public static Krepselis Krepselis { get; set; } = new Krepselis();
+
+        public static void NuskaitytiPrekes()
         {
             List<Preke> prekes = new List<Preke>();
 
@@ -25,8 +30,8 @@ namespace DnDAksesuaruParduotuve
                                          preke.TurimasKiekis));
                 }
             }
-            
-            return prekes;
+
+            Prekes = prekes;
         }
     }
 }

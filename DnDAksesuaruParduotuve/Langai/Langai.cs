@@ -12,10 +12,10 @@ namespace DnDAksesuaruParduotuve
             Application.Run(PrekiuLangas);
         }
 
-        public static PrekiuLangas PrekiuLangas = new PrekiuLangas();
-        public static KrepselioLangas KrepselioLangas = new KrepselioLangas();
+        public static PrekiuLangas PrekiuLangas { get; set; } = new PrekiuLangas();
+        public static KrepselioLangas KrepselioLangas { get; set; } = new KrepselioLangas();
 
-        public static void FormClosed(object sender, FormClosedEventArgs e)
+        public static void Exit()
         {
             Application.Exit();
         }

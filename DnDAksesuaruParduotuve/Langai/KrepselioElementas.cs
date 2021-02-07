@@ -30,7 +30,7 @@ namespace DnDAksesuaruParduotuve
             }
             else
             {
-                nuotrauka.AtvaizduotiNuotraukaViduryje(preke.PrekeId);
+                nuotrauka.AtvaizduotiNuotraukaCentre(preke.PrekeId);
                 pavadinimas.Text = preke.Pavadinimas;
                 kiekis.Text = String.Format("{0}x", preke.PasirinktasKiekis.ToString());
                 kaina.Text = String.Format("{0:0.00} €", preke.Kaina);
