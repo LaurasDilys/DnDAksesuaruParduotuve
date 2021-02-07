@@ -109,6 +109,7 @@ namespace DnDAksesuaruParduotuve
         private void KrepselioLangas_Show(object sender, EventArgs e)
         {
             Hide();
+            Langai.KrepselioLangas.Location = this.Location;
             Langai.KrepselioLangas.Show();
         }
     }

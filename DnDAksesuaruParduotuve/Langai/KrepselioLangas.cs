@@ -95,6 +95,7 @@ namespace DnDAksesuaruParduotuve
         private void PrekiuLangas_Show(object sender, EventArgs e)
         {
             Hide();
+            Langai.PrekiuLangas.Location = this.Location;
             Langai.PrekiuLangas.Show();
         }
 

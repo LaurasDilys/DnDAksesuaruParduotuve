@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DnDAksesuaruParduotuve
 {
-    public class DnDAksesuaruContextInitializer : CreateDatabaseIfNotExists<DnDAksesuaruContext>
+    public class DnDAksesuaruContextInitializer : DropCreateDatabaseAlways<DnDAksesuaruContext>
     {
         protected override void Seed(DnDAksesuaruContext context)
         {
