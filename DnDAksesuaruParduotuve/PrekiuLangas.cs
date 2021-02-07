@@ -15,23 +15,22 @@ namespace DnDAksesuaruParduotuve
         public PrekiuLangas()
         {
             InitializeComponent();
-
-            
+            AtvaizduotiKontroles();
             AtvaizduotiPrekes();
         }
 
-        List<PictureBox> nuotraukos = new List<PictureBox>();
-        List<Label> kategorijos = new List<Label>();
-        List<Label> pavadinimai = new List<Label>();
-        List<Button> minusButtons = new List<Button>();
-        public List<Label> pasirinktiKiekiai = new List<Label>();
-        List<Button> plusButtons = new List<Button>();
-        List<Label> kainos = new List<Label>();
-        List<Label> infoApieKiekius = new List<Label>();
+        private List<PictureBox> nuotraukos = new List<PictureBox>();
+        private List<Label> kategorijos = new List<Label>();
+        private List<Label> pavadinimai = new List<Label>();
+        private List<Button> minusButtons = new List<Button>();
+        private List<Button> plusButtons = new List<Button>();
+        private List<Label> kainos = new List<Label>();
+        private List<Label> infoApieKiekius = new List<Label>();
+        public List<Label> PasirinktiKiekiai { get; set; } = new List<Label>();
 
-        public void AtvaizduotiPrekes()
+        public void AtvaizduotiKontroles()
         {
-            for (int i = 0; i < Duomenys.prekes.Count; i++)
+            for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
                 nuotraukos.Add(Nuotrauka(i));
                 PrekiuPanel.Controls.Add(nuotraukos[i]);
@@ -45,8 +44,8 @@ namespace DnDAksesuaruParduotuve
                 minusButtons.Add(MinusButton(i));
                 PrekiuPanel.Controls.Add(minusButtons[i]);
 
-                pasirinktiKiekiai.Add(PasirinktasKiekis(i));
-                PrekiuPanel.Controls.Add(pasirinktiKiekiai[i]);
+                PasirinktiKiekiai.Add(PasirinktasKiekis(i));
+                PrekiuPanel.Controls.Add(PasirinktiKiekiai[i]);
 
                 plusButtons.Add(PlusButton(i));
                 PrekiuPanel.Controls.Add(plusButtons[i]);
@@ -57,17 +56,19 @@ namespace DnDAksesuaruParduotuve
                 infoApieKiekius.Add(InfoApieKieki(i));
                 PrekiuPanel.Controls.Add(infoApieKiekius[i]);
             }
+        }
 
-            for (int i = 0; i < Duomenys.prekes.Count; i++)
+        public void AtvaizduotiPrekes()
+        {
+            for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
-                string location = @"C:\Users\laura\Desktop\testasHorizontal.jpg";
-                nuotraukos[i].AtvaizduotiNuotrauka(location);
-                pavadinimai[i].Text = Duomenys.prekes[i].Pavadinimas;
-                kategorijos[i].Text = Duomenys.prekes[i].Kategorija.ToUpper();
-                kainos[i].Text = Duomenys.prekes[i].Kaina.ToString("N") + " €";
-                pasirinktiKiekiai[i].Text = Duomenys.prekes[i].PasirinktasKiekis.ToString();
-                
-                int turimasKiekis = Duomenys.prekes[i].TurimasKiekis;
+                nuotraukos[i].AtvaizduotiNuotrauka(Duomenys.Prekes[i].PrekeId);
+                pavadinimai[i].Text = Duomenys.Prekes[i].Pavadinimas;
+                kategorijos[i].Text = Duomenys.Prekes[i].Kategorija.ToUpper();
+                kainos[i].Text = Duomenys.Prekes[i].Kaina.ToString("N") + " €";
+                PasirinktiKiekiai[i].Text = Duomenys.Prekes[i].PasirinktasKiekis.ToString();
+
+                int turimasKiekis = Duomenys.Prekes[i].TurimasKiekis;
                 switch (turimasKiekis)
                 {
                     case 0:
@@ -86,7 +87,7 @@ namespace DnDAksesuaruParduotuve
             }
         }
 
-        
+
 
 
 
@@ -95,20 +96,20 @@ namespace DnDAksesuaruParduotuve
         {
             Button mygtukas = (Button)sender;
             int i = minusButtons.IndexOf(mygtukas);
-            Duomenys.prekes[i].PasirinktasKiekis--;
+            Duomenys.Prekes[i].PasirinktasKiekis--;
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
             Button mygtukas = (Button)sender;
             int i = plusButtons.IndexOf(mygtukas);
-            Duomenys.prekes[i].PasirinktasKiekis++;
+            Duomenys.Prekes[i].PasirinktasKiekis++;
         }
 
         private void KrepselioLangas_Show(object sender, EventArgs e)
         {
             Hide();
-            Langai.krepselioLangas.Show();
+            Langai.KrepselioLangas.Show();
         }
     }
 }

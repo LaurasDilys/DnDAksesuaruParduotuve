@@ -6,12 +6,11 @@ namespace DnDAksesuaruParduotuve
 {
     public class Preke
     {
-        public Preke(string pavadinimas, string kategorija, double kaina, double svoris) : this(pavadinimas, kategorija, kaina, svoris, 1)
-        {
-        }
+        public Preke() { }
 
-        public Preke(string pavadinimas, string kategorija, double kaina, double svoris, int turimasKiekis)
+        public Preke(int prekeId, string pavadinimas, string kategorija, double kaina, double svoris, int turimasKiekis)
         {
+            PrekeId = prekeId;
             Pavadinimas = pavadinimas;
             Kategorija = kategorija;
             Kaina = kaina;
@@ -20,11 +19,12 @@ namespace DnDAksesuaruParduotuve
             pasirinktasKiekis = 0;
         }
 
-        public string Pavadinimas { get; }
-        public string Kategorija { get; }
-        public double Kaina { get; }
-        public double Svoris { get; }
-        public int TurimasKiekis { get; private set; }
+        public int PrekeId { get; set; }
+        public string Pavadinimas { get; set; }
+        public string Kategorija { get; set; }
+        public double Kaina { get; set; }
+        public double Svoris { get; set; }
+        public int TurimasKiekis { get; set; }
 
         private int pasirinktasKiekis;
         public int PasirinktasKiekis
@@ -37,15 +37,15 @@ namespace DnDAksesuaruParduotuve
                     if (pasirinktasKiekis > value)
                     {
                         pasirinktasKiekis = value;
-                        Duomenys.krepselis.Atimti(this);
+                        Duomenys.Krepselis.Atimti(this);
                     }
                     else
                     {
                         pasirinktasKiekis = value;
-                        Duomenys.krepselis.Prideti(this);
+                        Duomenys.Krepselis.Prideti(this);
                     }
-                    int i = Duomenys.prekes.IndexOf(this);
-                    Langai.prekiuLangas.pasirinktiKiekiai[i].Text = PasirinktasKiekis.ToString();
+                    int i = Duomenys.Prekes.IndexOf(this);
+                    Langai.PrekiuLangas.PasirinktiKiekiai[i].Text = PasirinktasKiekis.ToString();
                 }
             }
         }

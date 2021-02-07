@@ -41,9 +41,9 @@ namespace DnDAksesuaruParduotuve
             // pavadinimas
             // 
             this.pavadinimas.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pavadinimas.Location = new System.Drawing.Point(74, 14);
+            this.pavadinimas.Location = new System.Drawing.Point(66, 14);
             this.pavadinimas.Name = "pavadinimas";
-            this.pavadinimas.Size = new System.Drawing.Size(138, 23);
+            this.pavadinimas.Size = new System.Drawing.Size(146, 23);
             this.pavadinimas.TabIndex = 0;
             this.pavadinimas.Text = "Chessex Borealis";
             // 
@@ -52,6 +52,7 @@ namespace DnDAksesuaruParduotuve
             this.nuotrauka.Location = new System.Drawing.Point(12, 8);
             this.nuotrauka.Name = "nuotrauka";
             this.nuotrauka.Size = new System.Drawing.Size(48, 34);
+            this.nuotrauka.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.nuotrauka.TabIndex = 2;
             this.nuotrauka.TabStop = false;
             // 

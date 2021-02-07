@@ -20,7 +20,7 @@ namespace DnDAksesuaruParduotuve
             pristatymoLabels.Add(kurjeriuLabel);
             pristatymoLabels.Add(iPastomataLabel);
             pristatymoLabels.Add(tarptautinisLabel);
-            siunta = new Siunta(Duomenys.krepselis);
+            siunta = new Siunta(Duomenys.Krepselis);
         }
 
         private List<Label> pristatymoLabels;
@@ -31,7 +31,7 @@ namespace DnDAksesuaruParduotuve
 
         public void KrepselioPanel_Update(Preke preke)
         {
-            if (Duomenys.krepselis.Prekes.Count > krepselioElementai.Count)
+            if (Duomenys.Krepselis.Prekes.Count > krepselioElementai.Count)
             {
                 krepselioElementai.Add(new KrepselioElementas(preke, this));
                 KrepselioPanel.Controls.Add(krepselioElementai.Last());
@@ -94,11 +94,8 @@ namespace DnDAksesuaruParduotuve
 
         private void PrekiuLangas_Show(object sender, EventArgs e)
         {
-            //Hide();
-            //Langai.prekiuLangas.Show();
-            PrekiuLangas prekiuLangas2 = new PrekiuLangas();
-            this.Dispose();
-            prekiuLangas2.Show();
+            Hide();
+            Langai.PrekiuLangas.Show();
         }
 
         private void apmoketiButton_Click(object sender, EventArgs e)

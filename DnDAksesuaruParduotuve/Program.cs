@@ -24,13 +24,13 @@ namespace DnDAksesuaruParduotuve
 
     public class Langai
     {
-        public static PrekiuLangas prekiuLangas = new PrekiuLangas();
-        public static KrepselioLangas krepselioLangas = new KrepselioLangas();
+        public static PrekiuLangas PrekiuLangas = new PrekiuLangas();
+        public static KrepselioLangas KrepselioLangas = new KrepselioLangas();
 
         public Langai()
         {
-            Application.Run(prekiuLangas);
-            Application.Run(krepselioLangas);
+            Application.Run(PrekiuLangas);
+            Application.Run(KrepselioLangas);
         }
     }
 }
