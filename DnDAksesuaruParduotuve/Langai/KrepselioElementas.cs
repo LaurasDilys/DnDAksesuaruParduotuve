@@ -30,27 +30,22 @@ namespace DnDAksesuaruParduotuve
             }
             else
             {
-                int i = Krepselis.IndexKrepselyje(preke);
-                nuotrauka.AtvaizduotiNuotraukaViduryje(Duomenys.Krepselis.Prekes[i].PrekeId);
-                pavadinimas.Text = Duomenys.Krepselis.Prekes[i].Pavadinimas;
-                kiekis.Text = String.Format("{0}x", Duomenys.Krepselis.Prekes[i].PasirinktasKiekis.ToString());
-                kaina.Text = String.Format("{0:0.00} €", Duomenys.Krepselis.Prekes[i].Kaina);
+                nuotrauka.AtvaizduotiNuotraukaViduryje(preke.PrekeId);
+                pavadinimas.Text = preke.Pavadinimas;
+                kiekis.Text = String.Format("{0}x", preke.PasirinktasKiekis.ToString());
+                kaina.Text = String.Format("{0:0.00} €", preke.Kaina);
             }
         }
 
         public void minusButton_Click(object sender, EventArgs e)
         {
-            Button mygtukas = (Button)sender;
-            int i = Duomenys.Prekes.IndexOf(preke);
-            Duomenys.Prekes[i].PasirinktasKiekis--;
+            preke.PasirinktasKiekis--;
             krepselioLangas.SiuntosInfo_Update();
         }
 
         public void plusButton_Click(object sender, EventArgs e)
         {
-            Button mygtukas = (Button)sender;
-            int i = Duomenys.Prekes.IndexOf(preke);
-            Duomenys.Prekes[i].PasirinktasKiekis++;
+            preke.PasirinktasKiekis++;
             krepselioLangas.SiuntosInfo_Update();
         }
     }

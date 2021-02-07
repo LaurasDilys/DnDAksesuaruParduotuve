@@ -342,6 +342,7 @@ namespace DnDAksesuaruParduotuve
             this.MinimumSize = new System.Drawing.Size(913, 876);
             this.Name = "KrepselioLangas";
             this.Text = "D&D Aksesuarai";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Langai.FormClosed);
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CartLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasaulioNuotrauka)).EndInit();

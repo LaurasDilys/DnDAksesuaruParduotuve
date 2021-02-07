@@ -21,16 +21,4 @@ namespace DnDAksesuaruParduotuve
             new Duomenys();
         }
     }
-
-    public class Langai
-    {
-        public static PrekiuLangas PrekiuLangas = new PrekiuLangas();
-        public static KrepselioLangas KrepselioLangas = new KrepselioLangas();
-
-        public Langai()
-        {
-            Application.Run(PrekiuLangas);
-            Application.Run(KrepselioLangas);
-        }
-    }
 }
