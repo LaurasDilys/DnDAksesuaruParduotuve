@@ -28,7 +28,7 @@ namespace DnDAksesuaruParduotuve
         private List<Label> infoApieKiekius = new List<Label>();
         public List<Label> PasirinktiKiekiai { get; set; } = new List<Label>();
 
-        public void AtvaizduotiKontroles()
+        private void AtvaizduotiKontroles()
         {
             for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
@@ -58,7 +58,7 @@ namespace DnDAksesuaruParduotuve
             }
         }
 
-        public void AtvaizduotiPrekes()
+        private void AtvaizduotiPrekes()
         {
             for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
@@ -116,6 +116,20 @@ namespace DnDAksesuaruParduotuve
         private void PrekiuLangas_FormClosed(object sender, FormClosedEventArgs e)
         {
             Langai.Exit();
+        }
+
+        private void KrepselioLogo_MouseEnter(object sender, EventArgs e)
+        {
+            KrepselisLogo.ForeColor = SystemColors.Highlight;
+            KrepselisLogo.Font = new Font(KrepselisLogo.Font, FontStyle.Bold);
+            PasirinktuPrekiuKiekis.ForeColor = SystemColors.Highlight;
+        }
+
+        private void KrepselioLogo_MouseLeave(object sender, EventArgs e)
+        {
+            KrepselisLogo.ForeColor = SystemColors.ControlText;
+            KrepselisLogo.Font = new Font(KrepselisLogo.Font, FontStyle.Regular);
+            PasirinktuPrekiuKiekis.ForeColor = SystemColors.ControlText;
         }
     }
 }

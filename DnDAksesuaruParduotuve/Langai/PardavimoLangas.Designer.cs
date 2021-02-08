@@ -35,12 +35,14 @@ namespace DnDAksesuaruParduotuve
             this.iseitiButton = new System.Windows.Forms.Button();
             this.griztiButton = new System.Windows.Forms.Button();
             this.pardavimoInfo = new System.Windows.Forms.Label();
+            this.DnDLogoPanel = new System.Windows.Forms.Panel();
             DnDLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // DnDLogo
             // 
+            DnDLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             DnDLogo.Image = ((System.Drawing.Image)(resources.GetObject("DnDLogo.Image")));
             DnDLogo.Location = new System.Drawing.Point(17, 19);
             DnDLogo.Name = "DnDLogo";
@@ -49,10 +51,13 @@ namespace DnDAksesuaruParduotuve
             DnDLogo.TabIndex = 9;
             DnDLogo.TabStop = false;
             DnDLogo.Click += new System.EventHandler(this.Grizti);
+            DnDLogo.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            DnDLogo.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
             // 
             // AksesuaraiLogo
             // 
             this.AksesuaraiLogo.AutoSize = true;
+            this.AksesuaraiLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AksesuaraiLogo.Font = new System.Drawing.Font("Old English Text MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AksesuaraiLogo.Location = new System.Drawing.Point(69, 20);
             this.AksesuaraiLogo.Name = "AksesuaraiLogo";
@@ -60,6 +65,8 @@ namespace DnDAksesuaruParduotuve
             this.AksesuaraiLogo.TabIndex = 10;
             this.AksesuaraiLogo.Text = "Aksesuarai";
             this.AksesuaraiLogo.Click += new System.EventHandler(this.Grizti);
+            this.AksesuaraiLogo.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            this.AksesuaraiLogo.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
             // 
             // iseitiButton
             // 
@@ -92,6 +99,17 @@ namespace DnDAksesuaruParduotuve
             this.pardavimoInfo.Text = "Dėkojame, kad apsipirkote mūsų parduotuvėje!";
             this.pardavimoInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // DnDLogoPanel
+            // 
+            this.DnDLogoPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DnDLogoPanel.Location = new System.Drawing.Point(9, 10);
+            this.DnDLogoPanel.Name = "DnDLogoPanel";
+            this.DnDLogoPanel.Size = new System.Drawing.Size(185, 51);
+            this.DnDLogoPanel.TabIndex = 30;
+            this.DnDLogoPanel.Click += new System.EventHandler(this.Grizti);
+            this.DnDLogoPanel.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            this.DnDLogoPanel.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
+            // 
             // PardavimoLangas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -102,6 +120,7 @@ namespace DnDAksesuaruParduotuve
             this.Controls.Add(this.iseitiButton);
             this.Controls.Add(this.AksesuaraiLogo);
             this.Controls.Add(DnDLogo);
+            this.Controls.Add(this.DnDLogoPanel);
             this.MaximumSize = new System.Drawing.Size(913, 876);
             this.MinimumSize = new System.Drawing.Size(913, 876);
             this.Name = "PardavimoLangas";
@@ -120,5 +139,6 @@ namespace DnDAksesuaruParduotuve
         private System.Windows.Forms.Button iseitiButton;
         private System.Windows.Forms.Button griztiButton;
         private System.Windows.Forms.Label pardavimoInfo;
+        private System.Windows.Forms.Panel DnDLogoPanel;
     }
 }

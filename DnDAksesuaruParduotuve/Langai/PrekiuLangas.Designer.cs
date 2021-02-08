@@ -175,6 +175,7 @@ namespace DnDAksesuaruParduotuve
             this.KrepselisLogo = new System.Windows.Forms.Label();
             this.PasirinktuPrekiuKaina = new System.Windows.Forms.Label();
             this.PasirinktuPrekiuKiekis = new System.Windows.Forms.Label();
+            this.KrepselioLogoPanel = new System.Windows.Forms.Panel();
             DnDLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CartLogo)).BeginInit();
@@ -211,6 +212,7 @@ namespace DnDAksesuaruParduotuve
             // CartLogo
             // 
             this.CartLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CartLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CartLogo.Image = ((System.Drawing.Image)(resources.GetObject("CartLogo.Image")));
             this.CartLogo.Location = new System.Drawing.Point(730, 13);
             this.CartLogo.Name = "CartLogo";
@@ -219,10 +221,13 @@ namespace DnDAksesuaruParduotuve
             this.CartLogo.TabIndex = 3;
             this.CartLogo.TabStop = false;
             this.CartLogo.Click += new System.EventHandler(this.KrepselioLangas_Show);
+            this.CartLogo.MouseEnter += new System.EventHandler(this.KrepselioLogo_MouseEnter);
+            this.CartLogo.MouseLeave += new System.EventHandler(this.KrepselioLogo_MouseLeave);
             // 
             // KrepselisLogo
             // 
             this.KrepselisLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.KrepselisLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KrepselisLogo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.KrepselisLogo.Location = new System.Drawing.Point(780, 13);
             this.KrepselisLogo.Name = "KrepselisLogo";
@@ -231,10 +236,13 @@ namespace DnDAksesuaruParduotuve
             this.KrepselisLogo.Text = "Krepšelis";
             this.KrepselisLogo.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.KrepselisLogo.Click += new System.EventHandler(this.KrepselioLangas_Show);
+            this.KrepselisLogo.MouseEnter += new System.EventHandler(this.KrepselioLogo_MouseEnter);
+            this.KrepselisLogo.MouseLeave += new System.EventHandler(this.KrepselioLogo_MouseLeave);
             // 
             // PasirinktuPrekiuKaina
             // 
             this.PasirinktuPrekiuKaina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasirinktuPrekiuKaina.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PasirinktuPrekiuKaina.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PasirinktuPrekiuKaina.Location = new System.Drawing.Point(777, 33);
             this.PasirinktuPrekiuKaina.Name = "PasirinktuPrekiuKaina";
@@ -243,11 +251,14 @@ namespace DnDAksesuaruParduotuve
             this.PasirinktuPrekiuKaina.Text = "0.00 €";
             this.PasirinktuPrekiuKaina.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.PasirinktuPrekiuKaina.Click += new System.EventHandler(this.KrepselioLangas_Show);
+            this.PasirinktuPrekiuKaina.MouseEnter += new System.EventHandler(this.KrepselioLogo_MouseEnter);
+            this.PasirinktuPrekiuKaina.MouseLeave += new System.EventHandler(this.KrepselioLogo_MouseLeave);
             // 
             // PasirinktuPrekiuKiekis
             // 
             this.PasirinktuPrekiuKiekis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PasirinktuPrekiuKiekis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PasirinktuPrekiuKiekis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PasirinktuPrekiuKiekis.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PasirinktuPrekiuKiekis.Location = new System.Drawing.Point(746, 17);
             this.PasirinktuPrekiuKiekis.Name = "PasirinktuPrekiuKiekis";
@@ -256,6 +267,19 @@ namespace DnDAksesuaruParduotuve
             this.PasirinktuPrekiuKiekis.Text = "0";
             this.PasirinktuPrekiuKiekis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.PasirinktuPrekiuKiekis.Click += new System.EventHandler(this.KrepselioLangas_Show);
+            this.PasirinktuPrekiuKiekis.MouseEnter += new System.EventHandler(this.KrepselioLogo_MouseEnter);
+            this.PasirinktuPrekiuKiekis.MouseLeave += new System.EventHandler(this.KrepselioLogo_MouseLeave);
+            // 
+            // KrepselioLogoPanel
+            // 
+            this.KrepselioLogoPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.KrepselioLogoPanel.Location = new System.Drawing.Point(722, 4);
+            this.KrepselioLogoPanel.Name = "KrepselioLogoPanel";
+            this.KrepselioLogoPanel.Size = new System.Drawing.Size(140, 58);
+            this.KrepselioLogoPanel.TabIndex = 0;
+            this.KrepselioLogoPanel.Click += new System.EventHandler(this.KrepselioLangas_Show);
+            this.KrepselioLogoPanel.MouseEnter += new System.EventHandler(this.KrepselioLogo_MouseEnter);
+            this.KrepselioLogoPanel.MouseLeave += new System.EventHandler(this.KrepselioLogo_MouseLeave);
             // 
             // PrekiuLangas
             // 
@@ -269,6 +293,7 @@ namespace DnDAksesuaruParduotuve
             this.Controls.Add(this.CartLogo);
             this.Controls.Add(this.AksesuaraiLogo);
             this.Controls.Add(DnDLogo);
+            this.Controls.Add(this.KrepselioLogoPanel);
             this.MaximumSize = new System.Drawing.Size(913, 876);
             this.MinimumSize = new System.Drawing.Size(913, 876);
             this.Name = "PrekiuLangas";
@@ -290,6 +315,7 @@ namespace DnDAksesuaruParduotuve
         public Label PasirinktuPrekiuKaina;
         public Label PasirinktuPrekiuKiekis;
         private Label KrepselisLogo;
+        private Panel KrepselioLogoPanel;
     }
 }
 

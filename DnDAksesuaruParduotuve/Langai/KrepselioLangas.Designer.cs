@@ -53,6 +53,7 @@ namespace DnDAksesuaruParduotuve
             this.pristatymoBudasLabel = new System.Windows.Forms.Label();
             this.adresasBox = new System.Windows.Forms.TextBox();
             this.adresasBoxBorder = new System.Windows.Forms.Panel();
+            this.DnDLogoPanel = new System.Windows.Forms.Panel();
             DnDLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CartLogo)).BeginInit();
@@ -64,6 +65,7 @@ namespace DnDAksesuaruParduotuve
             // 
             // DnDLogo
             // 
+            DnDLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             DnDLogo.Image = ((System.Drawing.Image)(resources.GetObject("DnDLogo.Image")));
             DnDLogo.Location = new System.Drawing.Point(17, 19);
             DnDLogo.Name = "DnDLogo";
@@ -72,6 +74,8 @@ namespace DnDAksesuaruParduotuve
             DnDLogo.TabIndex = 7;
             DnDLogo.TabStop = false;
             DnDLogo.Click += new System.EventHandler(this.PrekiuLangas_Show);
+            DnDLogo.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            DnDLogo.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
             // 
             // PasirinktuPrekiuKiekis
             // 
@@ -121,6 +125,7 @@ namespace DnDAksesuaruParduotuve
             // AksesuaraiLogo
             // 
             this.AksesuaraiLogo.AutoSize = true;
+            this.AksesuaraiLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AksesuaraiLogo.Font = new System.Drawing.Font("Old English Text MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AksesuaraiLogo.Location = new System.Drawing.Point(69, 20);
             this.AksesuaraiLogo.Name = "AksesuaraiLogo";
@@ -128,6 +133,8 @@ namespace DnDAksesuaruParduotuve
             this.AksesuaraiLogo.TabIndex = 8;
             this.AksesuaraiLogo.Text = "Aksesuarai";
             this.AksesuaraiLogo.Click += new System.EventHandler(this.PrekiuLangas_Show);
+            this.AksesuaraiLogo.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            this.AksesuaraiLogo.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
             // 
             // KrepselioPanel
             // 
@@ -192,6 +199,7 @@ namespace DnDAksesuaruParduotuve
             // 
             this.tarptautinisLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tarptautinisLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tarptautinisLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tarptautinisLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tarptautinisLabel.Location = new System.Drawing.Point(217, 399);
             this.tarptautinisLabel.Name = "tarptautinisLabel";
@@ -205,6 +213,7 @@ namespace DnDAksesuaruParduotuve
             // 
             this.iPastomataLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.iPastomataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iPastomataLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iPastomataLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.iPastomataLabel.Location = new System.Drawing.Point(71, 399);
             this.iPastomataLabel.Name = "iPastomataLabel";
@@ -218,6 +227,7 @@ namespace DnDAksesuaruParduotuve
             // 
             this.kurjeriuLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.kurjeriuLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kurjeriuLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.kurjeriuLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kurjeriuLabel.Location = new System.Drawing.Point(217, 220);
             this.kurjeriuLabel.Name = "kurjeriuLabel";
@@ -231,6 +241,7 @@ namespace DnDAksesuaruParduotuve
             // 
             this.pastuLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pastuLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pastuLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pastuLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pastuLabel.Location = new System.Drawing.Point(71, 220);
             this.pastuLabel.Name = "pastuLabel";
@@ -310,6 +321,17 @@ namespace DnDAksesuaruParduotuve
             this.adresasBoxBorder.Size = new System.Drawing.Size(328, 29);
             this.adresasBoxBorder.TabIndex = 28;
             // 
+            // DnDLogoPanel
+            // 
+            this.DnDLogoPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DnDLogoPanel.Location = new System.Drawing.Point(9, 10);
+            this.DnDLogoPanel.Name = "DnDLogoPanel";
+            this.DnDLogoPanel.Size = new System.Drawing.Size(185, 51);
+            this.DnDLogoPanel.TabIndex = 29;
+            this.DnDLogoPanel.Click += new System.EventHandler(this.PrekiuLangas_Show);
+            this.DnDLogoPanel.MouseEnter += new System.EventHandler(this.DndLogo_MouseEnter);
+            this.DnDLogoPanel.MouseLeave += new System.EventHandler(this.DndLogo_MouseLeave);
+            // 
             // KrepselioLangas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -338,6 +360,7 @@ namespace DnDAksesuaruParduotuve
             this.Controls.Add(this.AksesuaraiLogo);
             this.Controls.Add(DnDLogo);
             this.Controls.Add(this.adresasBoxBorder);
+            this.Controls.Add(this.DnDLogoPanel);
             this.MaximumSize = new System.Drawing.Size(913, 876);
             this.MinimumSize = new System.Drawing.Size(913, 876);
             this.Name = "KrepselioLangas";
@@ -379,5 +402,6 @@ namespace DnDAksesuaruParduotuve
         private System.Windows.Forms.Label pristatymoBudasLabel;
         private System.Windows.Forms.TextBox adresasBox;
         private System.Windows.Forms.Panel adresasBoxBorder;
+        private System.Windows.Forms.Panel DnDLogoPanel;
     }
 }

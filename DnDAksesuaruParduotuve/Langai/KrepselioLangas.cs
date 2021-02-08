@@ -99,6 +99,18 @@ namespace DnDAksesuaruParduotuve
             Langai.PrekiuLangas.Show();
         }
 
+        private void DndLogo_MouseEnter(object sender, EventArgs e)
+        {
+            AksesuaraiLogo.ForeColor = SystemColors.Highlight;
+        }
+
+        private void DndLogo_MouseLeave(object sender, EventArgs e)
+        {
+            AksesuaraiLogo.ForeColor = SystemColors.ControlText;
+        }
+
+
+
         private void apmoketiButton_Click(object sender, EventArgs e)
         {
             string zinute = "";

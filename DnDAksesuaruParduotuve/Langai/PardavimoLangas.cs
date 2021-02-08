@@ -16,6 +16,16 @@ namespace DnDAksesuaruParduotuve
             pardavimoInfo.Text = $"Dėkojame, kad apsipirkote mūsų parduotuvėje!\n\nSiunta bus prisatyta adresu: {adresas}\n\nAr norite grįžti į parduotuvę?";
         }
 
+        private void DndLogo_MouseEnter(object sender, EventArgs e)
+        {
+            AksesuaraiLogo.ForeColor = SystemColors.Highlight;
+        }
+
+        private void DndLogo_MouseLeave(object sender, EventArgs e)
+        {
+            AksesuaraiLogo.ForeColor = SystemColors.ControlText;
+        }
+
         private void Grizti(object sender, EventArgs e)
         {
             Duomenys.NuskaitytiPrekes();
