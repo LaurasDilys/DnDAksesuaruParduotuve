@@ -182,7 +182,7 @@ namespace DnDAksesuaruParduotuve
             this.bendraKaina.Name = "bendraKaina";
             this.bendraKaina.Size = new System.Drawing.Size(137, 35);
             this.bendraKaina.TabIndex = 16;
-            this.bendraKaina.Text = "666.00 eur";
+            this.bendraKaina.Text = "0.00 €";
             this.bendraKaina.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // siuntosInfoLabel
@@ -192,7 +192,6 @@ namespace DnDAksesuaruParduotuve
             this.siuntosInfoLabel.Name = "siuntosInfoLabel";
             this.siuntosInfoLabel.Size = new System.Drawing.Size(356, 232);
             this.siuntosInfoLabel.TabIndex = 9;
-            this.siuntosInfoLabel.Text = "Siuntos kaina: 69 eur";
             this.siuntosInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tarptautinisLabel

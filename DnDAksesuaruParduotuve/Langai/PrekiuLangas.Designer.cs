@@ -19,7 +19,7 @@ namespace DnDAksesuaruParduotuve
 
         public static int AntstumasnuoVirsaus(int objektoIndeksas)
         {
-            return objektoIndeksas / 4 * 250;
+            return objektoIndeksas / 4 * 273;
         }
 
         public PictureBox Nuotrauka(int objektoIndeksas)
@@ -53,12 +53,13 @@ namespace DnDAksesuaruParduotuve
         public Label Pavadinimas(int objektoIndeksas)
         {
             Label pavadinimas = new Label();
-            pavadinimas.AutoSize = true;
             pavadinimas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             pavadinimas.Location =
                 new System.Drawing.Point(-1 + AntstumasnuoKaires(objektoIndeksas),
                                        140 + AntstumasnuoVirsaus(objektoIndeksas));
             pavadinimas.Size = new System.Drawing.Size(162, 23);
+            pavadinimas.MaximumSize = new System.Drawing.Size(162, 46);
+            pavadinimas.AutoSize = true;
             //pavadinimas.TabIndex = objektoIndeksas;
 
             return pavadinimas;
@@ -71,7 +72,7 @@ namespace DnDAksesuaruParduotuve
             minusButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             minusButton.Location =
                 new System.Drawing.Point(AntstumasnuoKaires(objektoIndeksas),
-                                  167 + AntstumasnuoVirsaus(objektoIndeksas));
+                                  190 + AntstumasnuoVirsaus(objektoIndeksas));
             minusButton.Size = new System.Drawing.Size(32, 32);
             minusButton.Text = " -";
             minusButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -88,7 +89,7 @@ namespace DnDAksesuaruParduotuve
             pasirinktasKiekis.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             pasirinktasKiekis.Location =
                 new System.Drawing.Point(36 + AntstumasnuoKaires(objektoIndeksas),
-                                       168 + AntstumasnuoVirsaus(objektoIndeksas));
+                                       191 + AntstumasnuoVirsaus(objektoIndeksas));
             pasirinktasKiekis.Size = new System.Drawing.Size(35, 30);
             pasirinktasKiekis.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             //pasirinktasKiekis.TabIndex = objektoIndeksas;
@@ -100,11 +101,12 @@ namespace DnDAksesuaruParduotuve
         {
             Button plusButton = new Button();
             plusButton.Click += new EventHandler(plusButton_Click);
+            plusButton.MouseUp += new MouseEventHandler(plusButton_MouseUp);
             plusButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             plusButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             plusButton.Location =
                 new System.Drawing.Point(75 + AntstumasnuoKaires(objektoIndeksas),
-                                       167 + AntstumasnuoVirsaus(objektoIndeksas));
+                                       190 + AntstumasnuoVirsaus(objektoIndeksas));
             plusButton.Size = new System.Drawing.Size(32, 32);
             plusButton.Text = "+";
             plusButton.UseVisualStyleBackColor = true;
@@ -120,7 +122,7 @@ namespace DnDAksesuaruParduotuve
             kaina.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             kaina.Location =
                 new System.Drawing.Point(116 + AntstumasnuoKaires(objektoIndeksas),
-                                        171 + AntstumasnuoVirsaus(objektoIndeksas));
+                                        194 + AntstumasnuoVirsaus(objektoIndeksas));
             kaina.Size = new System.Drawing.Size(64, 23);
             //kaina.TabIndex = objektoIndeksas;
 
@@ -134,7 +136,7 @@ namespace DnDAksesuaruParduotuve
             infoApieKieki.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             infoApieKieki.Location =
                 new System.Drawing.Point(AntstumasnuoKaires(objektoIndeksas),
-                                  205 + AntstumasnuoVirsaus(objektoIndeksas));
+                                  228 + AntstumasnuoVirsaus(objektoIndeksas));
             infoApieKieki.Size = new System.Drawing.Size(129, 17);
             //infoApieKieki.TabIndex = objektoIndeksas;
 
@@ -167,6 +169,7 @@ namespace DnDAksesuaruParduotuve
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.PictureBox DnDLogo;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrekiuLangas));
             this.AksesuaraiLogo = new System.Windows.Forms.Label();
@@ -176,6 +179,7 @@ namespace DnDAksesuaruParduotuve
             this.PasirinktuPrekiuKaina = new System.Windows.Forms.Label();
             this.PasirinktuPrekiuKiekis = new System.Windows.Forms.Label();
             this.KrepselioLogoPanel = new System.Windows.Forms.Panel();
+            this.daugiauNeturime = new System.Windows.Forms.ToolTip(this.components);
             DnDLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CartLogo)).BeginInit();
@@ -316,6 +320,7 @@ namespace DnDAksesuaruParduotuve
         public Label PasirinktuPrekiuKiekis;
         private Label KrepselisLogo;
         private Panel KrepselioLogoPanel;
+        private ToolTip daugiauNeturime;
     }
 }
 

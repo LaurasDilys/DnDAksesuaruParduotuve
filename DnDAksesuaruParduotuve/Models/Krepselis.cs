@@ -28,6 +28,7 @@ namespace DnDAksesuaruParduotuve
             Langai.KrepselioLangas.KrepselioPanel_Update(preke);
             if (preke.PasirinktasKiekis == 0) { Prekes.Remove(preke); }
             KrepselioLogo_Update();
+            Langai.KrepselioLangas.SiuntosInfo_Update();
         }
 
         public void Prideti(Preke preke)
@@ -40,6 +41,7 @@ namespace DnDAksesuaruParduotuve
             if (!Prekes.Contains(preke)) { Prekes.Add(preke); }
             Langai.KrepselioLangas.KrepselioPanel_Update(preke);
             KrepselioLogo_Update();
+            Langai.KrepselioLangas.SiuntosInfo_Update();
         }
 
         public void KrepselioLogo_Update()

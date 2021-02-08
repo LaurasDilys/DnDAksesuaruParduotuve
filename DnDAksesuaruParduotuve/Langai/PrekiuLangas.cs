@@ -63,34 +63,49 @@ namespace DnDAksesuaruParduotuve
             for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
                 nuotraukos[i].AtvaizduotiNuotrauka(Duomenys.Prekes[i].PrekeId);
-                pavadinimai[i].Text = Duomenys.Prekes[i].Pavadinimas;
                 kategorijos[i].Text = Duomenys.Prekes[i].Kategorija.ToUpper();
+                pavadinimai[i].Text = Duomenys.Prekes[i].Pavadinimas;
+                //Pavadinimui yra skiriamos max dvi eilutės
+                //Jeigu pavadinimui užtenka vienos eilutės:
+                if (TextRenderer.MeasureText(pavadinimai[i].Text, pavadinimai[i].Font).Width <= pavadinimai[i].Width)
+                {
+                    int vienosEilutesAukstis = pavadinimai[i].Height;
+                    minusButtons[i].Top -= vienosEilutesAukstis;
+                    plusButtons[i].Top -= vienosEilutesAukstis;
+                    kainos[i].Top -= vienosEilutesAukstis;
+                    infoApieKiekius[i].Top -= vienosEilutesAukstis;
+                    PasirinktiKiekiai[i].Top -= vienosEilutesAukstis;
+                }
                 kainos[i].Text = Duomenys.Prekes[i].Kaina.ToString("N") + " €";
                 PasirinktiKiekiai[i].Text = Duomenys.Prekes[i].PasirinktasKiekis.ToString();
 
                 int turimasKiekis = Duomenys.Prekes[i].TurimasKiekis;
-                switch (turimasKiekis)
+                if (turimasKiekis < 1)
                 {
-                    case 0:
-                        infoApieKiekius[i].Text = "Šiuo metu neturime";
-                        infoApieKiekius[i].ForeColor = Color.Red;
-                        break;
-                    case 1:
-                        infoApieKiekius[i].Text = "Liko tik 1 vnt.";
-                        infoApieKiekius[i].ForeColor = Color.Lime;
-                        break;
-                    default:
-                        infoApieKiekius[i].Text = "Turime parduotuvėje";
-                        infoApieKiekius[i].ForeColor = Color.Green;
-                        break;
+                    infoApieKiekius[i].Text = "Šiuo metu neturime";
+                    infoApieKiekius[i].ForeColor = Color.Red;
+                    //Deaktyvuojamos prekės kontrolės:
+                    pavadinimai[i].ForeColor = SystemColors.GrayText;
+                    kategorijos[i].ForeColor = SystemColors.GrayText;
+                    kainos[i].ForeColor = SystemColors.GrayText;
+                    PasirinktiKiekiai[i].ForeColor = SystemColors.GrayText;
+                    PasirinktiKiekiai[i].Text = "";
+                    minusButtons[i].Enabled = false;
+                    plusButtons[i].Enabled = false;
+                    plusButtons[i].MouseUp -= plusButton_MouseUp;
+                }
+                else if (turimasKiekis == 1)
+                {
+                    infoApieKiekius[i].Text = "Liko tik 1 vnt.";
+                    infoApieKiekius[i].ForeColor = Color.Lime;
+                }
+                else
+                {
+                    infoApieKiekius[i].Text = "Turime parduotuvėje";
+                    infoApieKiekius[i].ForeColor = Color.Green;
                 }
             }
         }
-
-
-
-
-
 
         private void minusButton_Click(object sender, EventArgs e)
         {
@@ -104,6 +119,14 @@ namespace DnDAksesuaruParduotuve
             Button mygtukas = (Button)sender;
             int i = plusButtons.IndexOf(mygtukas);
             Duomenys.Prekes[i].PasirinktasKiekis++;
+        }
+
+        private void plusButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            Button mygtukas = (Button)sender;
+            int i = plusButtons.IndexOf(mygtukas);
+            Preke preke = Duomenys.Prekes[i];
+            if (preke.PasirinktasKiekis == preke.TurimasKiekis) daugiauNeturime.Show("Šiuo metu daugiau neturime", mygtukas);
         }
 
         private void KrepselioLangas_Show(object sender, EventArgs e)

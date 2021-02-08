@@ -22,12 +22,10 @@ namespace DnDAksesuaruParduotuve
             pristatymoLabels.Add(tarptautinisLabel);
             siunta = new Siunta(Duomenys.Krepselis);
         }
-
+        
+        public static List<KrepselioElementas> krepselioElementai { get; set; } = new List<KrepselioElementas>();
         private List<Label> pristatymoLabels;
-        public static List<KrepselioElementas> krepselioElementai = new List<KrepselioElementas>();
-
         private Siunta siunta;
-
 
         public void KrepselioPanel_Update(Preke preke)
         {
@@ -47,7 +45,6 @@ namespace DnDAksesuaruParduotuve
             siuntosInfoLabel.Text = string.Join("\n", siunta.SiuntosInfo());
             bendraKaina.Text = string.Format("{0:0.00} €", siunta.BendraKaina);
         }
-
 
         private void PristatymoLabel_Click(object sender, EventArgs e)
         {
@@ -108,8 +105,6 @@ namespace DnDAksesuaruParduotuve
         {
             AksesuaraiLogo.ForeColor = SystemColors.ControlText;
         }
-
-
 
         private void apmoketiButton_Click(object sender, EventArgs e)
         {
