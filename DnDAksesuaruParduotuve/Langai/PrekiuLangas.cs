@@ -19,21 +19,21 @@ namespace DnDAksesuaruParduotuve
             AtvaizduotiPrekes();
         }
 
-        private List<PictureBox> nuotraukos = new List<PictureBox>();
         private List<Label> kategorijos = new List<Label>();
         private List<Label> pavadinimai = new List<Label>();
         private List<Button> minusButtons = new List<Button>();
         private List<Button> plusButtons = new List<Button>();
         private List<Label> kainos = new List<Label>();
         private List<Label> infoApieKiekius = new List<Label>();
+        public List<PictureBox> Nuotraukos { get; set; } = new List<PictureBox>();
         public List<Label> PasirinktiKiekiai { get; set; } = new List<Label>();
 
         private void AtvaizduotiKontroles()
         {
             for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
-                nuotraukos.Add(Nuotrauka(i));
-                PrekiuPanel.Controls.Add(nuotraukos[i]);
+                Nuotraukos.Add(Nuotrauka(i));
+                PrekiuPanel.Controls.Add(Nuotraukos[i]);
 
                 kategorijos.Add(Kategorija(i));
                 PrekiuPanel.Controls.Add(kategorijos[i]);
@@ -62,7 +62,7 @@ namespace DnDAksesuaruParduotuve
         {
             for (int i = 0; i < Duomenys.Prekes.Count; i++)
             {
-                nuotraukos[i].AtvaizduotiNuotrauka(Duomenys.Prekes[i].PrekeId);
+                Nuotraukos[i].AtvaizduotiNuotrauka(Duomenys.Prekes[i].NuotraukaInternete);
                 kategorijos[i].Text = Duomenys.Prekes[i].Kategorija.ToUpper();
                 pavadinimai[i].Text = Duomenys.Prekes[i].Pavadinimas;
                 //Pavadinimui yra skiriamos max dvi eilutės
@@ -89,10 +89,8 @@ namespace DnDAksesuaruParduotuve
                     kategorijos[i].ForeColor = SystemColors.GrayText;
                     kainos[i].ForeColor = SystemColors.GrayText;
                     PasirinktiKiekiai[i].ForeColor = SystemColors.GrayText;
-                    PasirinktiKiekiai[i].Text = "";
                     minusButtons[i].Enabled = false;
                     plusButtons[i].Enabled = false;
-                    plusButtons[i].MouseUp -= plusButton_MouseUp;
                 }
                 else if (turimasKiekis == 1)
                 {
@@ -111,22 +109,17 @@ namespace DnDAksesuaruParduotuve
         {
             Button mygtukas = (Button)sender;
             int i = minusButtons.IndexOf(mygtukas);
-            Duomenys.Prekes[i].PasirinktasKiekis--;
+            Preke preke = Duomenys.Prekes[i];
+            preke.PasirinktasKiekis--;
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
             Button mygtukas = (Button)sender;
             int i = plusButtons.IndexOf(mygtukas);
-            Duomenys.Prekes[i].PasirinktasKiekis++;
-        }
-
-        private void plusButton_MouseUp(object sender, MouseEventArgs e)
-        {
-            Button mygtukas = (Button)sender;
-            int i = plusButtons.IndexOf(mygtukas);
             Preke preke = Duomenys.Prekes[i];
-            if (preke.PasirinktasKiekis == preke.TurimasKiekis) daugiauNeturime.Show("Šiuo metu daugiau neturime", mygtukas);
+            if (preke.PasirinktasKiekis < preke.TurimasKiekis) preke.PasirinktasKiekis++;
+            else daugiauNeturime.Show("Šiuo metu daugiau neturime", mygtukas);
         }
 
         private void KrepselioLangas_Show(object sender, EventArgs e)

@@ -52,11 +52,5 @@ namespace DnDAksesuaruParduotuve
             Langai.KrepselioLangas.PasirinktuPrekiuKiekis.Text = PrekiuKiekis.ToString();
             Langai.KrepselioLangas.PasirinktuPrekiuKaina.Text = string.Format("{0:0.00} €", PrekiuKaina);
         }
-
-        //public static int IndexKrepselyje(Preke preke)
-        //{
-        //    int i = Duomenys.Krepselis.Prekes.IndexOf(preke);
-        //    return i;
-        //}
     }
 }

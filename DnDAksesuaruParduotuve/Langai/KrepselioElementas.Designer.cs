@@ -29,12 +29,14 @@ namespace DnDAksesuaruParduotuve
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pavadinimas = new System.Windows.Forms.Label();
             this.nuotrauka = new System.Windows.Forms.PictureBox();
             this.kiekis = new System.Windows.Forms.Label();
             this.kaina = new System.Windows.Forms.Label();
             this.minusButton = new System.Windows.Forms.Button();
             this.plusButton = new System.Windows.Forms.Button();
+            this.daugiauNeturime = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nuotrauka)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +47,7 @@ namespace DnDAksesuaruParduotuve
             this.pavadinimas.Name = "pavadinimas";
             this.pavadinimas.Size = new System.Drawing.Size(146, 23);
             this.pavadinimas.TabIndex = 0;
-            this.pavadinimas.Text = "Chessex Borealis";
+            this.pavadinimas.Text = "Random prekė";
             // 
             // nuotrauka
             // 
@@ -73,7 +75,7 @@ namespace DnDAksesuaruParduotuve
             this.kaina.Name = "kaina";
             this.kaina.Size = new System.Drawing.Size(84, 23);
             this.kaina.TabIndex = 5;
-            this.kaina.Text = "238.00 e";
+            this.kaina.Text = "99.99 €";
             // 
             // minusButton
             // 
@@ -125,5 +127,6 @@ namespace DnDAksesuaruParduotuve
         private System.Windows.Forms.Label kaina;
         private System.Windows.Forms.Button minusButton;
         private System.Windows.Forms.Button plusButton;
+        private System.Windows.Forms.ToolTip daugiauNeturime;
     }
 }

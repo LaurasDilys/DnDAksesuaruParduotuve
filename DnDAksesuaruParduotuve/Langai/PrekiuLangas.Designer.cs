@@ -31,8 +31,6 @@ namespace DnDAksesuaruParduotuve
             nuotrauka.Size = new System.Drawing.Size(174, 112);
             nuotrauka.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             nuotrauka.TabStop = false;
-            //nuotrauka.TabIndex = objektoIndeksas;
-
             return nuotrauka;
         }
 
@@ -45,14 +43,13 @@ namespace DnDAksesuaruParduotuve
                 new System.Drawing.Point(AntstumasnuoKaires(objektoIndeksas),
                                   119 + AntstumasnuoVirsaus(objektoIndeksas));
             kategorija.Size = new System.Drawing.Size(70, 17);
-            //kategorija.TabIndex = objektoIndeksas;
-
             return kategorija;
         }
 
         public Label Pavadinimas(int objektoIndeksas)
         {
             Label pavadinimas = new Label();
+            pavadinimas.UseMnemonic = false;
             pavadinimas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             pavadinimas.Location =
                 new System.Drawing.Point(-1 + AntstumasnuoKaires(objektoIndeksas),
@@ -60,8 +57,6 @@ namespace DnDAksesuaruParduotuve
             pavadinimas.Size = new System.Drawing.Size(162, 23);
             pavadinimas.MaximumSize = new System.Drawing.Size(162, 46);
             pavadinimas.AutoSize = true;
-            //pavadinimas.TabIndex = objektoIndeksas;
-
             return pavadinimas;
         }
 
@@ -77,8 +72,6 @@ namespace DnDAksesuaruParduotuve
             minusButton.Text = " -";
             minusButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             minusButton.UseVisualStyleBackColor = true;
-            //minusButton.TabIndex = objektoIndeksas;
-
             return minusButton;
         }
 
@@ -92,8 +85,6 @@ namespace DnDAksesuaruParduotuve
                                        191 + AntstumasnuoVirsaus(objektoIndeksas));
             pasirinktasKiekis.Size = new System.Drawing.Size(35, 30);
             pasirinktasKiekis.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            //pasirinktasKiekis.TabIndex = objektoIndeksas;
-
             return pasirinktasKiekis;
         }
 
@@ -101,7 +92,6 @@ namespace DnDAksesuaruParduotuve
         {
             Button plusButton = new Button();
             plusButton.Click += new EventHandler(plusButton_Click);
-            plusButton.MouseUp += new MouseEventHandler(plusButton_MouseUp);
             plusButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             plusButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             plusButton.Location =
@@ -110,8 +100,6 @@ namespace DnDAksesuaruParduotuve
             plusButton.Size = new System.Drawing.Size(32, 32);
             plusButton.Text = "+";
             plusButton.UseVisualStyleBackColor = true;
-            //plusButton.TabIndex = objektoIndeksas;
-
             return plusButton;
         }
 
@@ -124,8 +112,6 @@ namespace DnDAksesuaruParduotuve
                 new System.Drawing.Point(116 + AntstumasnuoKaires(objektoIndeksas),
                                         194 + AntstumasnuoVirsaus(objektoIndeksas));
             kaina.Size = new System.Drawing.Size(64, 23);
-            //kaina.TabIndex = objektoIndeksas;
-
             return kaina;
         }
 
@@ -138,8 +124,6 @@ namespace DnDAksesuaruParduotuve
                 new System.Drawing.Point(AntstumasnuoKaires(objektoIndeksas),
                                   228 + AntstumasnuoVirsaus(objektoIndeksas));
             infoApieKieki.Size = new System.Drawing.Size(129, 17);
-            //infoApieKieki.TabIndex = objektoIndeksas;
-
             return infoApieKieki;
         }
 

@@ -20,6 +20,26 @@ namespace DnDAksesuaruParduotuve
                         .ToTable("Prekes")
                         .HasKey(k => k.PrekeId)
                         .Ignore(pk => pk.PasirinktasKiekis);
+
+            modelBuilder.Entity<Preke>()
+                        .Property(p => p.Pavadinimas)
+                        .IsRequired();
+
+            modelBuilder.Entity<Preke>()
+                        .Property(p => p.Kategorija)
+                        .IsRequired();
+
+            modelBuilder.Entity<Preke>()
+                        .Property(p => p.Kaina)
+                        .IsRequired();
+
+            modelBuilder.Entity<Preke>()
+                        .Property(p => p.Svoris)
+                        .IsRequired();
+
+            modelBuilder.Entity<Preke>()
+                        .Property(p => p.TurimasKiekis)
+                        .IsRequired();
         }
     }
 }

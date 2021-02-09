@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,8 +14,18 @@ namespace DnDAksesuaruParduotuve
         public PardavimoLangas(string adresas)
         {
             InitializeComponent();
-            pardavimoInfo.Text = $"Dėkojame, kad apsipirkote mūsų parduotuvėje!\n\nSiunta bus prisatyta adresu: {adresas}\n\nAr norite grįžti į parduotuvę?";
+            infoTekstas = new List<string>()
+            {
+                "Dėkojame, kad apsipirkote mūsų parduotuvėje!",
+                Environment.NewLine, Environment.NewLine,
+                $"Siunta bus prisatyta adresu: {adresas}",
+                Environment.NewLine, Environment.NewLine,
+                "Ar norite grįžti į parduotuvę?"
+            };
+            infoLabel.Text = string.Join("", infoTekstas);
         }
+
+        private List<string> infoTekstas;
 
         private void DndLogo_MouseEnter(object sender, EventArgs e)
         {
@@ -28,12 +39,14 @@ namespace DnDAksesuaruParduotuve
 
         private void Grizti(object sender, EventArgs e)
         {
-            Duomenys.NuskaitytiPrekes();
+            infoTekstas[^1] = "Prašome palaukti...";
+            infoLabel.Text = string.Join("", infoTekstas);
+            Duomenys.Prekes = ManageDb.NuskaitytiPrekes();
             Duomenys.Krepselis = new Krepselis();
             Langai.KrepselioLangas = new KrepselioLangas();
             Langai.PrekiuLangas = new PrekiuLangas();
             Langai.PrekiuLangas.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void Iseiti(object sender, EventArgs e)

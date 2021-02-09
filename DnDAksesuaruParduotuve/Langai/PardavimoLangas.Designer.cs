@@ -34,7 +34,7 @@ namespace DnDAksesuaruParduotuve
             this.AksesuaraiLogo = new System.Windows.Forms.Label();
             this.iseitiButton = new System.Windows.Forms.Button();
             this.griztiButton = new System.Windows.Forms.Button();
-            this.pardavimoInfo = new System.Windows.Forms.Label();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.DnDLogoPanel = new System.Windows.Forms.Panel();
             DnDLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(DnDLogo)).BeginInit();
@@ -91,13 +91,13 @@ namespace DnDAksesuaruParduotuve
             // 
             // pardavimoInfo
             // 
-            this.pardavimoInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pardavimoInfo.Location = new System.Drawing.Point(235, 162);
-            this.pardavimoInfo.Name = "pardavimoInfo";
-            this.pardavimoInfo.Size = new System.Drawing.Size(427, 243);
-            this.pardavimoInfo.TabIndex = 20;
-            this.pardavimoInfo.Text = "Dėkojame, kad apsipirkote mūsų parduotuvėje!";
-            this.pardavimoInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.infoLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.infoLabel.Location = new System.Drawing.Point(235, 162);
+            this.infoLabel.Name = "pardavimoInfo";
+            this.infoLabel.Size = new System.Drawing.Size(427, 243);
+            this.infoLabel.TabIndex = 20;
+            this.infoLabel.Text = "Dėkojame, kad apsipirkote mūsų parduotuvėje!";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DnDLogoPanel
             // 
@@ -115,7 +115,7 @@ namespace DnDAksesuaruParduotuve
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 829);
-            this.Controls.Add(this.pardavimoInfo);
+            this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.griztiButton);
             this.Controls.Add(this.iseitiButton);
             this.Controls.Add(this.AksesuaraiLogo);
@@ -138,7 +138,7 @@ namespace DnDAksesuaruParduotuve
         private System.Windows.Forms.Label AksesuaraiLogo;
         private System.Windows.Forms.Button iseitiButton;
         private System.Windows.Forms.Button griztiButton;
-        private System.Windows.Forms.Label pardavimoInfo;
+        private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.Panel DnDLogoPanel;
     }
 }

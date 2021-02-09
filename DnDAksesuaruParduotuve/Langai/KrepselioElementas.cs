@@ -10,43 +10,50 @@ namespace DnDAksesuaruParduotuve
 {
     public partial class KrepselioElementas : UserControl
     {
-        public KrepselioElementas(Preke preke, KrepselioLangas krepselioLangas)
+        public KrepselioElementas(Preke preke)
         {
             InitializeComponent();
             this.preke = preke;
-            this.krepselioLangas = krepselioLangas;
         }
 
         private Preke preke;
-        private KrepselioLangas krepselioLangas;
 
         public void Elementas_Update()
         {
             if (preke.PasirinktasKiekis == 0)
             {
-                KrepselioLangas.krepselioElementai.Remove(this);
+                Langai.KrepselioLangas.KrepselioElementai.Remove(this);
                 Controls.Remove(this);
                 this.Dispose();
             }
             else
             {
-                nuotrauka.AtvaizduotiNuotraukaCentre(preke.PrekeId);
+                if (nuotrauka.Image == null)
+                {
+                    int i = Duomenys.Prekes.IndexOf(preke);
+                    Image image = Langai.PrekiuLangas.Nuotraukos[i].Image;
+                    nuotrauka.AtvaizduotiNuotraukaKrepselyje(image);
+                }
                 pavadinimas.Text = preke.Pavadinimas;
                 kiekis.Text = String.Format("{0}x", preke.PasirinktasKiekis.ToString());
                 kaina.Text = String.Format("{0:0.00} €", preke.Kaina);
             }
         }
 
-        public void minusButton_Click(object sender, EventArgs e)
+        private void minusButton_Click(object sender, EventArgs e)
         {
             preke.PasirinktasKiekis--;
-            krepselioLangas.SiuntosInfo_Update();
+            Langai.KrepselioLangas.SiuntosInfo_Update();
         }
 
-        public void plusButton_Click(object sender, EventArgs e)
+        private void plusButton_Click(object sender, EventArgs e)
         {
-            preke.PasirinktasKiekis++;
-            krepselioLangas.SiuntosInfo_Update();
+            if (preke.PasirinktasKiekis < preke.TurimasKiekis)
+            {
+                preke.PasirinktasKiekis++;
+                Langai.KrepselioLangas.SiuntosInfo_Update();
+            }
+            else daugiauNeturime.Show("Šiuo metu daugiau neturime", (Button)sender);
         }
     }
 }

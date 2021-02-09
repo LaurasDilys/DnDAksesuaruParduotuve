@@ -8,7 +8,7 @@ namespace DnDAksesuaruParduotuve
     {
         public Preke() { }
 
-        public Preke(int prekeId, string pavadinimas, string kategorija, double kaina, double svoris, int turimasKiekis)
+        public Preke(int prekeId, string pavadinimas, string kategorija, double kaina, double svoris, int turimasKiekis, string nuotraukaInternete)
         {
             PrekeId = prekeId;
             Pavadinimas = pavadinimas;
@@ -16,6 +16,7 @@ namespace DnDAksesuaruParduotuve
             Kaina = kaina;
             Svoris = svoris;
             TurimasKiekis = turimasKiekis;
+            NuotraukaInternete = nuotraukaInternete;
             pasirinktasKiekis = 0;
         }
 
@@ -25,6 +26,7 @@ namespace DnDAksesuaruParduotuve
         public double Kaina { get; set; }
         public double Svoris { get; set; }
         public int TurimasKiekis { get; set; }
+        public string NuotraukaInternete { get; set; }
 
         private int pasirinktasKiekis;
         public int PasirinktasKiekis

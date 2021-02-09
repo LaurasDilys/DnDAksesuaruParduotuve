@@ -23,20 +23,20 @@ namespace DnDAksesuaruParduotuve
             siunta = new Siunta(Duomenys.Krepselis);
         }
         
-        public static List<KrepselioElementas> krepselioElementai { get; set; } = new List<KrepselioElementas>();
+        public List<KrepselioElementas> KrepselioElementai { get; set; } = new List<KrepselioElementas>();
         private List<Label> pristatymoLabels;
         private Siunta siunta;
 
         public void KrepselioPanel_Update(Preke preke)
         {
-            if (Duomenys.Krepselis.Prekes.Count > krepselioElementai.Count)
+            if (Duomenys.Krepselis.Prekes.Count > KrepselioElementai.Count)
             {
-                krepselioElementai.Add(new KrepselioElementas(preke, this));
-                KrepselioPanel.Controls.Add(krepselioElementai.Last());
+                KrepselioElementai.Add(new KrepselioElementas(preke));
+                KrepselioPanel.Controls.Add(KrepselioElementai.Last());
             }
-            for (int i = 0; i < krepselioElementai.Count; i++)
+            for (int i = 0; i < KrepselioElementai.Count; i++)
             {
-                krepselioElementai[i].Elementas_Update();
+                KrepselioElementai[i].Elementas_Update();
             }
         }
 
